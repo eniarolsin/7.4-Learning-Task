@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Graphical Arts with HTML5 Canvas</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f0f0f0;
+      margin: 0;
+      height: 100vh;
+    }
+    .row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    canvas {
+      margin: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="row">
+    <canvas id="hexagon" width="200" height="200"></canvas>
+    <canvas id="square" width="200" height="200"></canvas>
+    <canvas id="circle" width="200" height="200"></canvas>
+    <canvas id="triangle" width="200" height="200"></canvas>
+  </div>
+  <div class="row">
+    <canvas id="octagon" width="200" height="200"></canvas>
+    <canvas id="pentagon" width="200" height="200"></canvas>
+    <canvas id="diamond" width="200" height="200"></canvas>
+    <canvas id="rectangle" width="200" height="200"></canvas>
+  </div>
+
+  <script>
+    function drawHexagon() {
+      var canvas = document.getElementById('hexagon');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'orange';
+      ctx.beginPath();
+      ctx.moveTo(100, 0);
+      ctx.lineTo(200, 50);
+      ctx.lineTo(200, 150);
+      ctx.lineTo(100, 200);
+      ctx.lineTo(0, 150);
+      ctx.lineTo(0, 50);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawSquare() {
+      var canvas = document.getElementById('square');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'green';
+      ctx.fillRect(50, 50, 100, 100);
+    }
+
+    function drawCircle() {
+      var canvas = document.getElementById('circle');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'blue';
+      ctx.beginPath();
+      ctx.arc(100, 100, 50, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    function drawTriangle() {
+      var canvas = document.getElementById('triangle');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'red';
+      ctx.beginPath();
+      ctx.moveTo(100, 0);
+      ctx.lineTo(200, 200);
+      ctx.lineTo(0, 200);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawOctagon() {
+      var canvas = document.getElementById('octagon');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'purple';
+      ctx.beginPath();
+      for (var i = 0; i < 8; i++) {
+        ctx.lineTo(100 + 80 * Math.cos(i * 2 * Math.PI / 8), 100 + 80 * Math.sin(i * 2 * Math.PI / 8));
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawPentagon() {
+      var canvas = document.getElementById('pentagon');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'yellow';
+      ctx.beginPath();
+      for (var i = 0; i < 5; i++) {
+        ctx.lineTo(100 + 80 * Math.cos(i * 2 * Math.PI / 5), 100 + 80 * Math.sin(i * 2 * Math.PI / 5));
+      }
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawDiamond() {
+      var canvas = document.getElementById('diamond');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'pink';
+      ctx.beginPath();
+      ctx.moveTo(100, 0);
+      ctx.lineTo(200, 100);
+      ctx.lineTo(100, 200);
+      ctx.lineTo(0, 100);
+      ctx.closePath();
+      ctx.fill();
+    }
+
+    function drawRectangle() {
+      var canvas = document.getElementById('rectangle');
+      var ctx = canvas.getContext('2d');
+      ctx.fillStyle = 'cyan';
+      ctx.fillRect(50, 40, 100, 120);
+    }
+
+    // Call each drawing function
+    drawHexagon();
+    drawSquare();
+    drawCircle();
+    drawTriangle();
+    drawOctagon();
+    drawPentagon();
+    drawDiamond();
+    drawRectangle();
+  </script>
+</body>
+</html>
